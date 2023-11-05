@@ -18,7 +18,7 @@ export default function Cotizador() {
           </div>          
           <img src={imagen} alt="" className='object-cover bg-center aspect-auto h-36  opacity-80' />
         </section>
-        <FormCotizador />
+        <FormCotizador  />
 
         <div>
 

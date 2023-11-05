@@ -1,13 +1,23 @@
-import React from "react";
 import imagen from "../assets/undraw_house_searching_re_stk8.svg";
 import { useNavigate } from "react-router-dom";
+import TablaHistorial from "../components/TablaHistorial";
+import { useEffect, useState } from "react";
 
 export default function Historial() {
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(-1);
   };
-
+  const [cotizaciones, setCotizaciones] = useState([]);
+  useEffect(() => {
+    const cotizacionesExistentes = JSON.parse(localStorage.getItem("cotizaciones") );
+    setCotizaciones(cotizacionesExistentes);    
+  }, []);
+  const limpiarHistorial = () => {    
+    localStorage.removeItem("cotizaciones");
+    setCotizaciones([])
+  }
+  
   return (
     <main className="flex flex-wrap h-max">
       <div className="flex flex-col justify-center items-center relative w-full max-w-4xl mx-auto my-6 p-3 bg-indigo-100 rounded-3xl shadow-lg shadow-indigo-500/50">
@@ -22,60 +32,13 @@ export default function Historial() {
           </div>
           <img
             src={imagen}
-            alt=""
+            alt="imagen de una casa"
             className="object-cover bg-center h-16 md:h-36  aspect-auto opacity-80"
           />
         </section>
 
         <div className="overflow-auto w-4/5 md:w-full rounded-lg">
-          <table className="table-auto w-full overflow-x-scroll mb-4 bg-white border border-collapse border-gray-300 rounded-lg text-start">
-            <thead>
-              <tr>
-                <th className="py-2 px-2 border-b border-gray-300">
-                  Fecha de cotización
-                </th>
-                <th className="py-2 px-2 border-b border-gray-300">Propiedad</th>
-                <th className="py-2 px-2 border-b border-gray-300">Ubicación</th>
-                <th className="py-2 px-2 border-b border-gray-300">
-                  Metros cuadrados
-                </th>
-                <th className="py-2 px-2 border-b border-gray-300">
-                  Póliza mensual
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="py-2 px-4 border-b border-gray-300">John Doe</td>
-                <td className="py-2 px-4 border-b border-gray-300">
-                  john.doe@example.com
-                </td>
-                <td className="py-2 px-4 border-b border-gray-300">Developer</td>
-                <td className="py-2 px-4 border-b border-gray-300">Developer</td>
-                <td className="py-2 px-4 border-b border-gray-300">Developer</td>
-              </tr>
-              <tr>
-                <td className="py-2 px-4 border-b border-gray-300">Jane Smith</td>
-                <td className="py-2 px-4 border-b border-gray-300">
-                  jane.smith@example.com
-                </td>
-                <td className="py-2 px-4 border-b border-gray-300">Designer</td>
-                <td className="py-2 px-4 border-b border-gray-300">
-                  jane.smith@example.com
-                </td>
-                <td className="py-2 px-4 border-b border-gray-300">Designer</td>
-              </tr>
-              <tr>
-                <td className="py-2 px-4 border-b border-gray-300">
-                  Mark Johnson
-                </td>
-                <td className="py-2 px-4 border-b border-gray-300">
-                  mark.johnson@example.com
-                </td>
-                <td className="py-2 px-4 border-b border-gray-300">Manager</td>
-              </tr>
-            </tbody>
-          </table>
+          <TablaHistorial cotizaciones={cotizaciones} />
         </div>
 
         <div>
@@ -85,6 +48,8 @@ export default function Historial() {
           >
             VOLVER
           </button>
+          <button className=" bg-white font-normal w-28 h-9 mb-3 rounded-md border-emerald-500 border-x border-y text-emerald-600 text-sm hover:bg-emerald-500 hover:text-white transition-all duration-100"
+          onClick={limpiarHistorial}>LIMPIAR HISTORIAL</button>
         </div>
       </div>
     </main>
