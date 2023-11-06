@@ -44,9 +44,7 @@ export default function FormCotizador() {
             localStorage.setItem("cotizaciones", JSON.stringify([cotizacion]));
         }
         setCo(null)        
-        setInputs({})      
-        
-
+        setInputs({})
     }
     
 
@@ -55,7 +53,7 @@ export default function FormCotizador() {
             <form onSubmit={cotizar} className='flex flex-col z-10 w-full justify-center items-center px-5'>                
 
                 <label htmlFor="propiedad" className=' font-medium '>Selecciona el tipo de propiedad</label>            
-                <select id="propiedad" name='propiedad' value={inputs.propiedad} onChange={handleChanges}
+                <select id="propiedad" name='propiedad' value={inputs.propiedad || "..." } onChange={handleChanges}
                 className='w-3/4 min-w-1/2 px-1 py-2 mb-2 rounded-md border-2 border-slate-200 focus:border-emerald-500 focus:outline-none bg-white'>
                     <option defaultValue hidden>...</option>
                     {propiedades.map((propiedad) => {              
@@ -64,7 +62,7 @@ export default function FormCotizador() {
                 </select>
             
                 <label htmlFor="ubicacion" className=' font-medium '>Selecciona su ubicación</label>
-                <select id="ubicacion" name='ubicacion' value={inputs.ubicacion} onChange={handleChanges}
+                <select id="ubicacion" name='ubicacion' value={inputs.ubicacion || "..."} onChange={handleChanges}
                 className='w-3/4 min-w-1/2 px-1 py-2 mb-2 rounded-md border-2 border-slate-200 focus:border-emerald-500 focus:outline-none bg-white'>
                     <option defaultValue hidden>...</option>
                     {ubicaciones.map((ubicacion) => {              

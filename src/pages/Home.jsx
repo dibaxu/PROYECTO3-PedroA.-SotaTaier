@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 export default function Home() {
   return (
-    <main className='h-max'>  
+    <main className=' h-screen'>  
         <div className='mt-12 flex justify-center items-end font-bold font-serif text-2xl align-bottom space-x-3'>
             <h1 className=''>Bienes Raíces</h1>
             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-signature" width="32" height="32" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">

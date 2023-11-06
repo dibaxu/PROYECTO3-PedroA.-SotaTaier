@@ -7,9 +7,9 @@ export default function Cotizador() {
 
   
   return (
-    <main className='flex flex-wrap h-max'>
+    <main className='flex flex-wrap min-h-screen'>
       
-      <div className='flex flex-col justify-center items-center relative w-full max-w-4xl mx-auto my-6 p-3 bg-indigo-100 rounded-3xl shadow-lg shadow-indigo-500/50' >
+      <div className='flex flex-col justify-center items-center relative w-full max-w-2xl h-fit mx-auto my-8 p-3 bg-indigo-100 rounded-3xl shadow-lg shadow-indigo-500/50' >
 
         <section className='flex flex-row  items-center justify-center p-4 w-full'>
           <div className='w-1/2'>

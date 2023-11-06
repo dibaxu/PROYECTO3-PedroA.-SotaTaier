@@ -19,8 +19,8 @@ export default function Historial() {
   }
   
   return (
-    <main className="flex flex-wrap h-max">
-      <div className="flex flex-col justify-center items-center relative w-full max-w-4xl mx-auto my-6 p-3 bg-indigo-100 rounded-3xl shadow-lg shadow-indigo-500/50">
+    <main className="flex flex-wrap h-fit min-h-screen">
+      <div className="flex flex-col justify-center items-center relative w-full max-w-4xl h-fit mx-auto my-8 p-3 bg-indigo-100 rounded-3xl shadow-lg shadow-indigo-500/50">
         <section className="flex flex-row justify-center items-center p-4">
           <div className="w-1/2 ">
             <h1 className="font-bold text-2xl text-center text-gray-600">
@@ -41,14 +41,14 @@ export default function Historial() {
           <TablaHistorial cotizaciones={cotizaciones} />
         </div>
 
-        <div>
+        <div className="flex items-center space-x-2">
           <button
             className=" bg-white font-normal w-28 h-9 mb-3 rounded-md border-emerald-500 border-x border-y text-emerald-600 text-sm hover:bg-emerald-500 hover:text-white transition-all duration-100"
             onClick={handleClick}
           >
             VOLVER
           </button>
-          <button className=" bg-white font-normal w-28 h-9 mb-3 rounded-md border-emerald-500 border-x border-y text-emerald-600 text-sm hover:bg-emerald-500 hover:text-white transition-all duration-100"
+          <button className=" bg-white font-normal w-fit h-9 px-1 mb-3 rounded-md border-emerald-500 border-x border-y text-emerald-600 text-sm hover:bg-emerald-500 hover:text-white transition-all duration-100"
           onClick={limpiarHistorial}>LIMPIAR HISTORIAL</button>
         </div>
       </div>

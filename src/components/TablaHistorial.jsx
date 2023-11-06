@@ -8,7 +8,7 @@ export default function TablaHistorial({cotizaciones}) {
  
   return (
     <>
-        <table className="table-auto w-full overflow-x-scroll mb-4 bg-white border border-collapse border-gray-300 rounded-lg text-start">
+        <table className="table-auto w-full overflow-x-scroll mb-4 bg-white border border-collapse border-gray-300 rounded-lg text-center">
             <thead>
               <tr>
                 <th className="py-2 px-2 border-b border-gray-300">
