@@ -1,6 +1,6 @@
-# React + Vite
+# Proyecto 3 - Curso de Frontend React Argentina Programa
+Trabajo final del curso de Frontend dictado por la Universidad Nacional Tres de Febrero, en el marco del Argentina Programa.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
 
