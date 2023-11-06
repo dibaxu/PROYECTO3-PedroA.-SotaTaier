@@ -1,5 +1,6 @@
 import {datosPropiedad, datosUbicacion, costoM2} from '../constants/constantes'
 import { useState } from 'react'
+import Swal from 'sweetalert2'
 
 
 
@@ -18,17 +19,30 @@ export default function FormCotizador() {
         if (objFound) {
             return objFound.tipo
         } else {
-            console.log("NO ESTA ANDANDO ESTA VERGA")
+            console.log("NO ESTA ANDANDO")
         }
         
-    };
+    };    
     
 
     const cotizar = (e) => {
-        e.preventDefault();
-        const {propiedad, ubicacion, metros2} = inputs;        
-        const cotizacion = propiedad * ubicacion * metros2 * costoM2;                 
-        setCo(cotizacion.toFixed(2))
+        if (inputs.propiedad && inputs.ubicacion && inputs.metros2){
+            e.preventDefault();
+            const {propiedad, ubicacion, metros2} = inputs;        
+            const cotizacion = propiedad * ubicacion * metros2 * costoM2;                 
+            setCo(cotizacion.toFixed(2))
+        } else {
+            e.preventDefault();           
+            Swal.fire({
+                title: 'Error!',
+                text: 'Ups, parece que no completaste todos los campos!',
+                icon: 'warning',
+                confirmButtonText: 'Ok', 
+                timer: 3000, 
+                timerProgressBar: true,
+              })
+        }
+        
     }
 
     const guardarCotizacion = () => { 
@@ -43,11 +57,19 @@ export default function FormCotizador() {
         } else {
             localStorage.setItem("cotizaciones", JSON.stringify([cotizacion]));
         }
+        Swal.fire({
+            title: 'Cotización Guardada!',
+            text: 'Tu cotización fue guardada con éxito!',
+            icon: 'success',
+            confirmButtonText: 'Ok', 
+            timer: 3000, 
+            timerProgressBar: true,
+          })
         setCo(null)        
         setInputs({})
     }
     
-
+    
     return (
         <>
             <form onSubmit={cotizar} className='flex flex-col z-10 w-full justify-center items-center px-5'>                
