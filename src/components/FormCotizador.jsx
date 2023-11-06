@@ -101,7 +101,7 @@ export default function FormCotizador() {
 
             {co && <div className='flex flex-row pb-2 space-x-2 items-center align-middle'>
                 <p className='text-xl font-medium'>El costo de tu póliza es de: ${co}</p>
-                <button onClick={guardarCotizacion} className=' bg-white font-normal  h-9 px-1 py-2 rounded-md border-emerald-500 border text-emerald-600 text-sm hover:bg-emerald-500 hover:text-white transition-all duration-100'>Guardar Cotización</button>
+                <button onClick={guardarCotizacion} className=' bg-white font-normal  h-fit px-1 py-2 rounded-md border-emerald-500 border text-emerald-600 text-sm hover:bg-emerald-500 hover:text-white transition-all duration-100'>Guardar Cotización</button>
             </div>
             }
         </>
